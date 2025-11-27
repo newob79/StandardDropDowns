@@ -33,11 +33,21 @@ namespace StandardDropDowns.Data
             }.AsReadOnly();
         }
 
+        /// <summary>
+        /// Returns the month by its number (1-12)
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns>Month Info by the number</returns>
         public MonthInfo ByNumber(int number)
         {
             return _all.Value.FirstOrDefault(m => m.Number == number);
         }
 
+        /// <summary>
+        /// Find the month by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>The matching Month</returns>
         public MonthInfo ByName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -47,6 +57,13 @@ namespace StandardDropDowns.Data
                 m.Name.Equals(name.Trim(), StringComparison.OrdinalIgnoreCase));
         }
 
+        /// <summary>
+        /// Retrieves the month information corresponding to the specified abbreviation.    
+        /// </summary>
+        /// <param name="abbreviation">The three-letter abbreviation of the month to search for. Leading and trailing whitespace is ignored.
+        /// Comparison is case-insensitive. If null, empty, or whitespace, no result is returned.</param>
+        /// <returns>A <see cref="MonthInfo"/> representing the month with the specified abbreviation; or <see langword="null"/>
+        /// if no matching month is found.</returns>
         public MonthInfo ByAbbreviation(string abbreviation)
         {
             if (string.IsNullOrWhiteSpace(abbreviation))
