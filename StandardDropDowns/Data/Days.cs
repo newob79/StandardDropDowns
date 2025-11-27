@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StandardDropDowns.Data
+namespace StandardDropdowns.Data
 {
     public class Days
     {
