@@ -12,6 +12,9 @@ namespace StandardDropdowns
         private static readonly Lazy<UsStates> _usStates =
             new Lazy<UsStates>(() => new UsStates());
 
+        private static readonly Lazy<Countries> _countries =
+            new Lazy<Countries>(() => new Countries());
+
         /// <summary>
         /// Gets US state, DC, and territory data.
         /// </summary>
@@ -36,8 +39,32 @@ namespace StandardDropdowns
         /// </example>
         public static UsStates UsStates => _usStates.Value;
 
+        /// <summary>
+        /// Gets country data based on ISO 3166-1 standard.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// // Get all countries
+        /// var countries = DropdownData.Countries.All;
+        /// 
+        /// // Get countries by continent
+        /// var european = DropdownData.Countries.ByContinent("Europe");
+        /// 
+        /// // Look up a country
+        /// var usa = DropdownData.Countries.ByAlpha2Code("US");
+        /// var germany = DropdownData.Countries.ByAlpha3Code("DEU");
+        /// 
+        /// // Use the builder for custom lists
+        /// var customList = DropdownData.Countries.Builder()
+        ///     .InContinent("Europe", "North America")
+        ///     .Exclude("RU")
+        ///     .OrderByName()
+        ///     .Build();
+        /// </code>
+        /// </example>
+        public static Countries Countries => _countries.Value;
+
         // Future data providers will be added here:
-        // public static Countries Countries => _countries.Value;
         // public static Months Months => _months.Value;
         // public static DaysOfWeek DaysOfWeek => _daysOfWeek.Value;
         // etc.
