@@ -18,11 +18,11 @@ namespace StandardDropdowns.Data
         {
             return new List<PrefixTitleInfo>
             {
-                new PrefixTitleInfo { Name = "Mister", Abbreviation = "Mr.",  Category = "Civilian", Number = 1 },
-                new PrefixTitleInfo { Name = "Miss", Abbreviation = "Ms.", Category = "Civilian", Number = 2 },
-                new PrefixTitleInfo { Name = "Mistress", Abbreviation = "Mrs.", Category = "Civilian", Number = 3 },
-                new PrefixTitleInfo { Name = "Doctor", Abbreviation = "Dr.", Category = "Professional", Number = 4 },
-                new PrefixTitleInfo { Name = "Professor", Abbreviation = "Prof.", Category = "Professional", Number = 5 }
+                new PrefixTitleInfo { Name = "Mr.", Abbreviation = "Mister",  Category = "Civilian", Number = 1 },
+                new PrefixTitleInfo { Name = "Ms.", Abbreviation = "Miss", Category = "Civilian", Number = 2 },
+                new PrefixTitleInfo { Name = "Mrs.", Abbreviation = "Mistress", Category = "Civilian", Number = 3 },
+                new PrefixTitleInfo { Name = "Dr.", Abbreviation = "Doctor", Category = "Professional", Number = 4 },
+                new PrefixTitleInfo { Name = "Prof.", Abbreviation = "Professor", Category = "Professional", Number = 5 }
             }.AsReadOnly();
         }
 
