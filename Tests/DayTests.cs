@@ -1,7 +1,5 @@
 ﻿using FluentAssertions;
 using StandardDropdowns.Interfaces;
-using StandardDropDowns.Data;
-using StandardDropDowns.Models;
 using StandardDropdowns.Data;
 using StandardDropdowns.Models;
 using System.Collections.Generic;

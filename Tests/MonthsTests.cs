@@ -3,8 +3,6 @@ using StandardDropdowns;
 using StandardDropdowns.Data;
 using StandardDropdowns.Interfaces;
 using StandardDropdowns.Models;
-using StandardDropDowns.Data;
-using StandardDropDowns.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

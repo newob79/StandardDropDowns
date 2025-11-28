@@ -1,6 +1,5 @@
 ﻿using System;
 using StandardDropdowns.Data;
-using StandardDropDowns.Data;
 
 namespace StandardDropdowns
 {
@@ -21,6 +20,9 @@ namespace StandardDropdowns
 
         private static readonly Lazy<Days> _daysOfWeek =
             new Lazy<Days>(() => new Days());
+
+        private static readonly Lazy<PrefixTitle> _prefixTitles =
+            new Lazy<PrefixTitle>(() => new PrefixTitle());
 
         /// <summary>
         /// Gets US state, DC, and territory data.
@@ -98,7 +100,19 @@ namespace StandardDropdowns
         /// var Monday = DropdownData.Days.ByName("Monday");
         /// </code></example>
         public static Days Days => _daysOfWeek.Value;
-        
+
+        /// <summary>
+        /// Gets the collection of supported prefix titles, such as "Mr.", "Dr.", or "Ms.".
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// var titles = DropdownData.PrefixTitles.All;
+        /// 
+        /// // Look up a title
+        /// var mr = DropdownData.PrefixTitles.ByName("Mr.");
+        /// </code></example>
+        public static PrefixTitle PrefixTitles => _prefixTitles.Value;
+
         // Future data providers will be added here:
         // public static Months Months => _months.Value;
         // public static DaysOfWeek DaysOfWeek => _daysOfWeek.Value;

@@ -1,10 +1,10 @@
-﻿using StandardDropDowns.Models;
+﻿using StandardDropdowns.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StandardDropDowns.Data
+namespace StandardDropdowns.Data
 {
     public class Months
     {

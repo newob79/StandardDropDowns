@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StandardDropDowns.Models
+namespace StandardDropdowns.Models
 {
     /// <summary>
     /// Represents a day of the week.
