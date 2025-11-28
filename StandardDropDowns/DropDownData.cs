@@ -1,5 +1,6 @@
 ﻿using System;
 using StandardDropdowns.Data;
+using StandardDropDowns.Data;
 
 namespace StandardDropdowns
 {
@@ -14,6 +15,12 @@ namespace StandardDropdowns
 
         private static readonly Lazy<Countries> _countries =
             new Lazy<Countries>(() => new Countries());
+
+        private static readonly Lazy<Months> _months =
+            new Lazy<Months>(() => new Months());
+
+        private static readonly Lazy<Days> _daysOfWeek =
+            new Lazy<Days>(() => new Days());
 
         /// <summary>
         /// Gets US state, DC, and territory data.
@@ -64,6 +71,34 @@ namespace StandardDropdowns
         /// </example>
         public static Countries Countries => _countries.Value;
 
+        /// <summary>
+        /// Gets Months data. 
+        /// </summary>
+        /// <example></example>
+        /// <code>
+        /// // Get all months
+        /// var months = DropdownData.Months.All;
+        /// 
+        /// // Look up a month
+        /// var january = DropdownData.Months.ByName("January");
+        /// 
+        /// </code>
+        /// </example>
+        public static Months Months => _months.Value;
+
+        /// <summary>
+        /// Gets the collection of days of the week.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// var days = DropdownData.Days.All;
+        /// 
+        /// //Look up a day 
+        /// 
+        /// var Monday = DropdownData.Days.ByName("Monday");
+        /// </code></example>
+        public static Days Days => _daysOfWeek.Value;
+        
         // Future data providers will be added here:
         // public static Months Months => _months.Value;
         // public static DaysOfWeek DaysOfWeek => _daysOfWeek.Value;
