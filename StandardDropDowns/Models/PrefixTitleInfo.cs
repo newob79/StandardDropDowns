@@ -18,7 +18,7 @@ namespace StandardDropdowns.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the abbreviated form of the name or identifier.
+        /// The abbreviated form of the prefix title (e.g., "Mr.", "Dr.", "Prof.").
         /// </summary>
         public string Abbreviation { get; set; }
         
