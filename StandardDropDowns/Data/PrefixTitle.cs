@@ -28,7 +28,7 @@ namespace StandardDropdowns.Data
         public PrefixTitleInfo ByNumber(int number)
         {
             return _all.Value.FirstOrDefault(t => t.Number == number);
-        }   
+        }
 
         public PrefixTitleInfo ByAbbreviation(string abbreviation)
         {
