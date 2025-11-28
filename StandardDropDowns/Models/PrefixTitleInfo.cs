@@ -15,7 +15,7 @@ namespace StandardDropdowns.Models
         /// <summary>
         /// Gets or sets the name of the prefix title (e.g., "Mr.", "Ms.", "Dr.").
         /// </summary>
-        public string Name { get; set; }  
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the abbreviated form of the name or identifier.
