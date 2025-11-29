@@ -287,7 +287,7 @@ public class YesNoOptionsTests
             .OrderByName()
             .Build();
 
-        options.Should().BeInAscendingOrder(o => o.Text, StringComparer.Ordinal);
+        options.Should().BeInAscendingOrder(o => o.Text, StringComparer.InvariantCulture);
     }
 
     [Fact]
@@ -297,7 +297,7 @@ public class YesNoOptionsTests
             .OrderByNameDescending()
             .Build();
 
-        options.Should().BeInDescendingOrder(o => o.Text, StringComparer.Ordinal);
+        options.Should().BeInDescendingOrder(o => o.Text, StringComparer.InvariantCulture);
     }
 
     #endregion

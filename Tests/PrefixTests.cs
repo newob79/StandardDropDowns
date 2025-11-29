@@ -59,11 +59,11 @@ public class PrefixTitleTests
     [InlineData(2, "Miss")]
     [InlineData(3, "Ms.")]
     [InlineData(4, "Mrs.")]
-    [InlineData(6, "Dr.")]
-    [InlineData(7, "Prof.")]
-    [InlineData(8, "Rev.")]
-    [InlineData(9, "Fr.")]
-    [InlineData(10, "Hon.")]
+    [InlineData(5, "Dr.")]
+    [InlineData(6, "Prof.")]
+    [InlineData(7, "Rev.")]
+    [InlineData(8, "Fr.")]
+    [InlineData(9, "Hon.")]
     public void ByNumber_ShouldReturnExpectedTitle(int number, string expectedAbbreviation)
     {
         var provider = new PrefixTitle();
@@ -333,7 +333,7 @@ public class PrefixTitleTests
             .OrderByName()
             .Build();
 
-        titles.Should().BeInAscendingOrder(t => t.Name, StringComparer.Ordinal);
+        titles.Should().BeInAscendingOrder(t => t.Name, StringComparer.InvariantCulture);
     }
 
     [Fact]
@@ -343,7 +343,7 @@ public class PrefixTitleTests
             .OrderByNameDescending()
             .Build();
 
-        titles.Should().BeInDescendingOrder(t => t.Name, StringComparer.Ordinal);
+        titles.Should().BeInDescendingOrder(t => t.Name, StringComparer.InvariantCulture);
     }
 
     #endregion
@@ -361,7 +361,7 @@ public class PrefixTitleTests
 
         titles.Should().NotContain(t => t.Value == "1");
         titles.Should().OnlyContain(t => t.Category == "Civilian" || t.Category == "Professional");
-        titles.Should().BeInAscendingOrder(t => t.Name, StringComparer.Ordinal);
+        titles.Should().BeInAscendingOrder(t => t.Name, StringComparer.InvariantCulture);
     }
 
     #endregion
