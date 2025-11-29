@@ -393,7 +393,7 @@ public class SuffixesTests
             .OrderByNameDescending()
             .Build();
 
-        suffixes.Should().BeInDescendingOrder(s => s.Text, StringComparer.Ordinal);
+        suffixes.Should().BeInDescendingOrder(s => s.Text, StringComparer.InvariantCulture);
     }
 
     [Fact]
