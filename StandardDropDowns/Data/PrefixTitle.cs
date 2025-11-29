@@ -26,15 +26,15 @@ namespace StandardDropdowns.Data
                 new PrefixTitleInfo { Name = "Mistress", Abbreviation = "Mrs.", Category = "Civilian", Number = 4 },
         
                 // Professional
-                new PrefixTitleInfo { Name = "Doctor", Abbreviation = "Dr.", Category = "Professional", Number = 6 },
-                new PrefixTitleInfo { Name = "Professor", Abbreviation = "Prof.", Category = "Professional", Number = 7 },
+                new PrefixTitleInfo { Name = "Doctor", Abbreviation = "Dr.", Category = "Professional", Number = 5 },
+                new PrefixTitleInfo { Name = "Professor", Abbreviation = "Prof.", Category = "Professional", Number = 6 },
         
                 // Religious
-                new PrefixTitleInfo { Name = "Reverend", Abbreviation = "Rev.", Category = "Religious", Number = 8 },
-                new PrefixTitleInfo { Name = "Father", Abbreviation = "Fr.", Category = "Religious", Number = 9 },
+                new PrefixTitleInfo { Name = "Reverend", Abbreviation = "Rev.", Category = "Religious", Number = 7 },
+                new PrefixTitleInfo { Name = "Father", Abbreviation = "Fr.", Category = "Religious", Number = 8 },
         
                 // Honorific
-                new PrefixTitleInfo { Name = "Honorable", Abbreviation = "Hon.", Category = "Honorific", Number = 10 }
+                new PrefixTitleInfo { Name = "Honorable", Abbreviation = "Hon.", Category = "Honorific", Number = 9 }
             }.AsReadOnly();
         }
 
