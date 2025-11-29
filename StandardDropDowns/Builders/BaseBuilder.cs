@@ -68,7 +68,7 @@ namespace StandardDropdowns.Builders
         /// </summary>
         public TBuilder OrderByText()
         {
-            _orderBy = items => items.OrderBy(i => i.Text, StringComparer.Ordinal);
+            _orderBy = items => items.OrderBy(i => i.Text, StringComparer.InvariantCulture);
             return (TBuilder)this;
         }
 
@@ -77,7 +77,7 @@ namespace StandardDropdowns.Builders
         /// </summary>
         public TBuilder OrderByTextDescending()
         {
-            _orderBy = items => items.OrderByDescending(i => i.Text, StringComparer.Ordinal);
+            _orderBy = items => items.OrderByDescending(i => i.Text, StringComparer.InvariantCulture);
             return (TBuilder)this;
         }
 
@@ -86,7 +86,7 @@ namespace StandardDropdowns.Builders
         /// </summary>
         public TBuilder OrderByValue()
         {
-            _orderBy = items => items.OrderBy(i => i.Value, StringComparer.Ordinal);
+            _orderBy = items => items.OrderBy(i => i.Value, StringComparer.InvariantCulture);
             return (TBuilder)this;
         }
 
@@ -95,7 +95,7 @@ namespace StandardDropdowns.Builders
         /// </summary>
         public TBuilder OrderByValueDescending()
         {
-            _orderBy = items => items.OrderByDescending(i => i.Value, StringComparer.Ordinal);
+            _orderBy = items => items.OrderByDescending(i => i.Value, StringComparer.InvariantCulture);
             return (TBuilder)this;
         }
 

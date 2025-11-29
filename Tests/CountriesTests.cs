@@ -389,7 +389,7 @@ public class CountriesTests
             .OrderByName()
             .Build();
         
-        countries.Should().BeInAscendingOrder(c => c.Name);
+        countries.Should().BeInAscendingOrder(c => c.Name, StringComparer.InvariantCulture);
     }
 
     [Fact]
@@ -399,7 +399,7 @@ public class CountriesTests
             .OrderByNameDescending()
             .Build();
         
-        countries.Should().BeInDescendingOrder(c => c.Name);
+        countries.Should().BeInDescendingOrder(c => c.Name, StringComparer.InvariantCulture);
     }
 
     [Fact]
