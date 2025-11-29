@@ -24,6 +24,18 @@ namespace StandardDropdowns
         private static readonly Lazy<PrefixTitle> _prefixTitles =
             new Lazy<PrefixTitle>(() => new PrefixTitle());
 
+        private static readonly Lazy<Suffixes> _suffixes =
+            new Lazy<Suffixes>(() => new Suffixes());
+
+        private static readonly Lazy<Genders> _genders =
+            new Lazy<Genders>(() => new Genders());
+
+        private static readonly Lazy<MaritalStatuses> _maritalStatuses =
+            new Lazy<MaritalStatuses>(() => new MaritalStatuses());
+
+        private static readonly Lazy<YesNoOptions> _yesNo =
+            new Lazy<YesNoOptions>(() => new YesNoOptions());
+
         /// <summary>
         /// Gets US state, DC, and territory data.
         /// </summary>
@@ -112,6 +124,26 @@ namespace StandardDropdowns
         /// var mr = DropdownData.PrefixTitles.ByName("Mr.");
         /// </code></example>
         public static PrefixTitle PrefixTitles => _prefixTitles.Value;
+
+        /// <summary>
+        /// Gets name suffix data (Jr., PhD, Esq., etc.).
+        /// </summary>
+        public static Suffixes Suffixes => _suffixes.Value;
+
+        /// <summary>
+        /// Gets gender options.
+        /// </summary>
+        public static Genders Genders => _genders.Value;
+
+        /// <summary>
+        /// Gets marital status options.
+        /// </summary>
+        public static MaritalStatuses MaritalStatuses => _maritalStatuses.Value;
+
+        /// <summary>
+        /// Gets yes/no options with various presets (Basic, WithNA, WithUnknown).
+        /// </summary>
+        public static YesNoOptions YesNo => _yesNo.Value;
 
         // Future data providers will be added here:
         // public static Months Months => _months.Value;

@@ -1,7 +1,8 @@
-﻿using System;
+﻿using StandardDropdowns.Builders;
+using StandardDropdowns.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using StandardDropdowns.Models;
 
 namespace StandardDropdowns.Data
 {
@@ -13,15 +14,31 @@ namespace StandardDropdowns.Data
         /// Gets all prefix titles.
         /// </summary>
         public IReadOnlyList<PrefixTitleInfo> All => _all.Value;
+        /// <summary>
+        /// Creates a builder for customizing the prefix title list.
+        /// </summary>
+        /// <returns>A new PrefixTitleBuilder instance.</returns>
+        public PrefixTitleBuilder Builder() => new PrefixTitleBuilder();
         private static IReadOnlyList<PrefixTitleInfo> LoadAllTitles()
         {
             return new List<PrefixTitleInfo>
             {
-                new PrefixTitleInfo { Name = "Mr.", Abbreviation = "Mister",  Category = "Civilian", Number = 1 },
-                new PrefixTitleInfo { Name = "Ms.", Abbreviation = "Miss", Category = "Civilian", Number = 2 },
-                new PrefixTitleInfo { Name = "Mrs.", Abbreviation = "Mistress", Category = "Civilian", Number = 3 },
-                new PrefixTitleInfo { Name = "Dr.", Abbreviation = "Doctor", Category = "Professional", Number = 4 },
-                new PrefixTitleInfo { Name = "Prof.", Abbreviation = "Professor", Category = "Professional", Number = 5 }
+                // Civilian
+                new PrefixTitleInfo { Name = "Mister", Abbreviation = "Mr.", Category = "Civilian", Number = 1 },
+                new PrefixTitleInfo { Name = "Miss", Abbreviation = "Miss", Category = "Civilian", Number = 2 },
+                new PrefixTitleInfo { Name = "Ms", Abbreviation = "Ms.", Category = "Civilian", Number = 3 },
+                new PrefixTitleInfo { Name = "Mistress", Abbreviation = "Mrs.", Category = "Civilian", Number = 4 },
+        
+                // Professional
+                new PrefixTitleInfo { Name = "Doctor", Abbreviation = "Dr.", Category = "Professional", Number = 5 },
+                new PrefixTitleInfo { Name = "Professor", Abbreviation = "Prof.", Category = "Professional", Number = 6 },
+        
+                // Religious
+                new PrefixTitleInfo { Name = "Reverend", Abbreviation = "Rev.", Category = "Religious", Number = 7 },
+                new PrefixTitleInfo { Name = "Father", Abbreviation = "Fr.", Category = "Religious", Number = 8 },
+        
+                // Honorific
+                new PrefixTitleInfo { Name = "Honorable", Abbreviation = "Hon.", Category = "Honorific", Number = 9 }
             }.AsReadOnly();
         }
 
