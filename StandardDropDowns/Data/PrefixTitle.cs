@@ -14,6 +14,10 @@ namespace StandardDropdowns.Data
         /// Gets all prefix titles.
         /// </summary>
         public IReadOnlyList<PrefixTitleInfo> All => _all.Value;
+        /// <summary>
+        /// Creates a builder for customizing the prefix title list.
+        /// </summary>
+        /// <returns>A new PrefixTitleBuilder instance.</returns>
         public PrefixTitleBuilder Builder() => new PrefixTitleBuilder();
         private static IReadOnlyList<PrefixTitleInfo> LoadAllTitles()
         {
