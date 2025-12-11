@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="StandardDropDowns/StandardDropDowns.csproj" />
   <Project Path="Tests/Tests.csproj" />
 </Solution>

@@ -2,7 +2,59 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>StandardDropdowns</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>newob79</Authors>
+    <Company>newob79</Company>
+    <Product>StandardDropdowns</Product>
+    <Description>A .NET library providing commonly used dropdown/select list data including US States, Countries, Months, Gender options, Marital Status, and more. Eliminates repetitive implementation of standard reference data across projects.</Description>
+    <PackageTags>dropdown;select;states;countries;reference-data;forms;ui;blazor;aspnet;winforms;maui</PackageTags>
+    <PackageProjectUrl>https://github.com/newob79/StandardDropDowns</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/newob79/StandardDropDowns</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright © 2025 Brett Bowen</Copyright>
+
+    <!-- Optional: Icon (if you have one) -->
+    <!-- <PackageIcon>icon.png</PackageIcon> -->
+
+    <!-- Generate package on build (optional - set to true if you want automatic generation) -->
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+
+    <!-- Include XML documentation in package -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Suppress XML comment warnings for cleaner builds -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+    <!-- Release notes for this version -->
+    <PackageReleaseNotes>
+      v1.0.0 - Initial Release
+      - US States (50 states, DC, territories)
+      - Countries (ISO 3166-1)
+      - Months and Days of Week
+      - Prefix Titles and Suffixes
+      - Gender and Marital Status
+      - Yes/No options with presets
+      - Builder pattern for customization
+      - ISelectOption interface for easy UI integration
+    </PackageReleaseNotes>
   </PropertyGroup>
+
+  <!-- Include README in package -->
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <!-- Optional: Include icon if you have one -->
+  <!-- 
+  <ItemGroup>
+    <None Include="..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  -->
 
 </Project>
