@@ -16,7 +16,7 @@ namespace StandardDropdowns
             new Lazy<CanadianProvinces>(() => new CanadianProvinces());
 
         private static readonly Lazy<MexicanStates> _mexicanStates =
-    new Lazy<MexicanStates>(() => new MexicanStates());
+            new Lazy<MexicanStates>(() => new MexicanStates());
 
         private static readonly Lazy<Countries> _countries =
             new Lazy<Countries>(() => new Countries());
