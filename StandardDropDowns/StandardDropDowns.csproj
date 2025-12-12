@@ -33,7 +33,7 @@
 
     <!-- Release notes for this version -->
     <PackageReleaseNotes>
-      v1.1.0 - Initial Release
+      v1.1.0 - Feature Release
       - Added Canadian Provinces (10 provinces + 3 territories)
       - Added Mexican States (31 states + CDMX)
       - Added Time Zones (curated list with IANA/Windows IDs)
