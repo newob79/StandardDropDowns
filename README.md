@@ -626,8 +626,8 @@ Future versions may include:
 
 If you encounter any issues or have questions:
 
-- 📝 [Open an issue](https://github.com/yourusername/StandardDropdowns/issues)
-- 💬 [Start a discussion](https://github.com/yourusername/StandardDropdowns/discussions)
+- 📝 [Open an issue](https://github.com/newob79/StandardDropdowns/issues)
+- 💬 [Start a discussion](https://github.com/newob79/StandardDropdowns/discussions)
 
 ## Acknowledgments
 
