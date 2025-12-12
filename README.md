@@ -7,14 +7,14 @@ A comprehensive .NET library providing standardized reference data for dropdown/
 
 ## Why StandardDropdowns?
 
-How many times have you implemented a US States dropdown? Or a countries list? Or months of the year? **StandardDropdowns** eliminates this repetitive work by providing:
+How many times have you implemented a US States dropdown? Or a countries list? Or months of the year? StandardDropdowns eliminates this repetitive work by providing:
 
-- ✅ **Accurate, standardized data** - ISO codes, official names, proper abbreviations
-- ✅ **Framework agnostic** - Works with ASP.NET Core, Blazor, WinForms, WPF, MAUI, and more
-- ✅ **Zero dependencies** - Pure .NET Standard 2.0 implementation
-- ✅ **Flexible API** - Simple static access for common cases, builder pattern for customization
-- ✅ **Thread-safe & immutable** - Safe for concurrent access
-- ✅ **Comprehensive test coverage** - Battle-tested with extensive unit tests
+✅ **Accurate, standardized data** - ISO codes, official names, proper abbreviations  
+✅ **Framework agnostic** - Works with ASP.NET Core, Blazor, WinForms, WPF, MAUI, and more  
+✅ **Zero dependencies** - Pure .NET Standard 2.0 implementation  
+✅ **Flexible API** - Simple static access for common cases, builder pattern for customization  
+✅ **Thread-safe & immutable** - Safe for concurrent access  
+✅ **Comprehensive test coverage** - Battle-tested with extensive unit tests
 
 ## Installation
 
@@ -44,6 +44,12 @@ var countries = DropdownData.Countries.All;
 // Get all months
 var months = DropdownData.Months.All;
 
+// Generate a range of numbers
+var quantities = DropdownData.Numbers.Range(1, 10);
+
+// Get last 100 years for birth date dropdown
+var birthYears = DropdownData.Years.Last(100);
+
 // Lookup specific items
 var texas = DropdownData.UsStates.ByAbbreviation("TX");
 var usa = DropdownData.Countries.ByAlpha2Code("US");
@@ -55,20 +61,29 @@ var january = DropdownData.Months.ByNumber(1);
 StandardDropdowns provides the following reference data:
 
 ### Geographic Data
+
 - **US States** - 50 states, District of Columbia, and 5 territories
+- **Canadian Provinces** - 10 provinces and 3 territories with Canada Post abbreviations
+- **Mexican States** - 31 states and CDMX with ISO 3166-2:MX codes
 - **Countries** - 200+ countries with ISO 3166-1 codes, organized by continent
+- **Time Zones** - Curated list of common time zones with IANA/Windows IDs
 
 ### Temporal Data
+
 - **Months** - 12 months with names, abbreviations, and numbers
 - **Days of Week** - 7 days with multiple abbreviation formats
+- **Years** - Dynamic year ranges with rolling windows (Last, Next, Range)
+- **Numbers** - Configurable numeric ranges with optional step
 
 ### Personal/Demographic Data
+
 - **Prefixes/Titles** - Mr., Mrs., Ms., Dr., Prof., Rev., etc. (9 options)
 - **Suffixes** - Jr., Sr., PhD, MD, Esq., etc. (22 options across 3 categories)
 - **Gender** - Configurable gender options
 - **Marital Status** - Single, Married, Divorced, Widowed, Separated, Domestic Partnership
 
 ### General Purpose Data
+
 - **Yes/No Options** - Multiple presets (Basic, With N/A, With Unknown)
 
 ## Usage Examples
@@ -109,6 +124,49 @@ var customStates = DropdownData.UsStates.Builder()
     .Build();
 ```
 
+### Canadian Provinces
+
+```csharp
+using StandardDropdowns;
+
+// Get different groupings
+var provinces = DropdownData.CanadianProvinces.Provinces;     // Just the 10 provinces
+var territories = DropdownData.CanadianProvinces.Territories; // 3 territories only
+var all = DropdownData.CanadianProvinces.All;                 // Everything
+
+// Lookup by abbreviation or name
+var ontario = DropdownData.CanadianProvinces.ByAbbreviation("ON");
+var quebec = DropdownData.CanadianProvinces.ByName("Quebec");
+
+// Custom builder
+var customProvinces = DropdownData.CanadianProvinces.Builder()
+    .IncludeTerritories()
+    .Exclude("NU", "NT")
+    .OrderByName()
+    .Build();
+```
+
+### Mexican States
+
+```csharp
+using StandardDropdowns;
+
+// Get different groupings
+var states = DropdownData.MexicanStates.States;         // Just the 31 states
+var statesAndCDMX = DropdownData.MexicanStates.StatesAndCDMX; // 31 states + CDMX
+var all = DropdownData.MexicanStates.All;               // Everything
+
+// Lookup by abbreviation or name
+var jalisco = DropdownData.MexicanStates.ByAbbreviation("JAL");
+var cdmx = DropdownData.MexicanStates.ByName("Ciudad de México");
+
+// Custom builder
+var customStates = DropdownData.MexicanStates.Builder()
+    .IncludeCDMX()
+    .OrderByName()
+    .Build();
+```
+
 ### Countries
 
 ```csharp
@@ -139,6 +197,59 @@ var euCountries = DropdownData.Countries.Builder()
           "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE")
     .OrderByName()
     .Build();
+```
+
+### Time Zones
+
+```csharp
+using StandardDropdowns;
+
+// Get all curated time zones
+var allZones = DropdownData.TimeZones.All;
+
+// Filter by region
+var americasZones = DropdownData.TimeZones.ByRegion("Americas");
+var europeZones = DropdownData.TimeZones.ByRegion("Europe");
+
+// Lookup by different identifiers
+var eastern = DropdownData.TimeZones.ByIanaId("America/New_York");
+var pst = DropdownData.TimeZones.ByAbbreviation("PST");
+
+// Custom builder
+var customZones = DropdownData.TimeZones.Builder()
+    .InRegion("Americas", "Europe")
+    .OrderByOffset()
+    .Build();
+```
+
+### Years (Dynamic Rolling Windows)
+
+```csharp
+using StandardDropdowns;
+
+// Last 100 years - perfect for birth dates (descending order)
+var birthYears = DropdownData.Years.Last(100);
+
+// Next 10 years - perfect for expiration dates (ascending order)
+var expirationYears = DropdownData.Years.Next(10);
+
+// Explicit range
+var customYears = DropdownData.Years.Range(1990, 2030);
+```
+
+### Numbers
+
+```csharp
+using StandardDropdowns;
+
+// Simple range
+var oneToTen = DropdownData.Numbers.Range(1, 10);
+
+// With step parameter
+var evens = DropdownData.Numbers.Range(2, 20, step: 2);
+
+// Descending order
+var countdown = DropdownData.Numbers.Range(10, 1);
 ```
 
 ### Months and Days
@@ -283,19 +394,25 @@ var academicSuffixes = DropdownData.Suffixes.Builder()
     .ExcludeCategory("Professional")
     .OrderByName()
     .Build();
+
+// Example: Time zones sorted by offset
+var sortedZones = DropdownData.TimeZones.Builder()
+    .InRegion("Americas")
+    .OrderByOffset()
+    .Build();
 ```
 
 ### Common Builder Methods
 
 All builders support these methods:
 
-- **`Exclude(params string[] values)`** - Exclude specific items by value
-- **`Only(params string[] values)`** - Include only specific items
-- **`OrderByText()`** - Sort by display text (ascending)
-- **`OrderByTextDescending()`** - Sort by display text (descending)
-- **`OrderByValue()`** - Sort by value (ascending)
-- **`OrderByValueDescending()`** - Sort by value (descending)
-- **`Build()`** - Build the final read-only list
+- `Exclude(params string[] values)` - Exclude specific items by value
+- `Only(params string[] values)` - Include only specific items
+- `OrderByText()` - Sort by display text (ascending)
+- `OrderByTextDescending()` - Sort by display text (descending)
+- `OrderByValue()` - Sort by value (ascending)
+- `OrderByValueDescending()` - Sort by value (descending)
+- `Build()` - Build the final read-only list
 
 Category-specific builders have additional methods:
 
@@ -306,10 +423,25 @@ Category-specific builders have additional methods:
 - `ExcludeStates()` - Exclude the 50 states
 - `OrderByName()`, `OrderByAbbreviation()` - Convenience methods
 
+**Canadian Provinces:**
+- `IncludeTerritories()` - Include territories
+- `ExcludeTerritories()` - Exclude territories
+- `OrderByName()`, `OrderByAbbreviation()` - Convenience methods
+
+**Mexican States:**
+- `IncludeCDMX()` - Include Ciudad de México (federal district)
+- `OrderByName()`, `OrderByAbbreviation()` - Convenience methods
+
 **Countries:**
 - `InContinent(params string[] continents)` - Include specific continents
 - `ExcludeContinent(params string[] continents)` - Exclude continents
 - `OrderByName()`, `OrderByCode()` - Convenience methods
+
+**Time Zones:**
+- `InRegion(params string[] regions)` - Include specific regions
+- `ExcludeRegion(params string[] regions)` - Exclude regions
+- `OrderByOffset()` - Sort by UTC offset (west to east)
+- `OrderByOffsetDescending()` - Sort by UTC offset (east to west)
 
 **Prefixes/Suffixes:**
 - `InCategory(params string[] categories)` - Include specific categories
@@ -334,6 +466,11 @@ public IActionResult Create()
         "Value", 
         "Text"
     );
+    ViewBag.Years = new SelectList(
+        DropdownData.Years.Last(100),
+        "Value",
+        "Text"
+    );
     return View();
 }
 
@@ -354,6 +491,14 @@ public IActionResult Create()
     @foreach (var country in DropdownData.Countries.All)
     {
         <option value="@country.Value">@country.Text</option>
+    }
+</InputSelect>
+
+<InputSelect @bind-Value="model.BirthYear" class="form-control">
+    <option value="">Select year...</option>
+    @foreach (var year in DropdownData.Years.Last(100))
+    {
+        <option value="@year.Value">@year.Text</option>
     }
 </InputSelect>
 ```
@@ -395,7 +540,10 @@ public IEnumerable<StateInfo> States => DropdownData.UsStates.States50;
 StandardDropdowns uses authoritative sources for all data:
 
 - **US States**: Official USPS abbreviations and names
+- **Canadian Provinces**: Canada Post official abbreviations
+- **Mexican States**: ISO 3166-2:MX codes
 - **Countries**: ISO 3166-1 standard (alpha-2, alpha-3, and numeric codes)
+- **Time Zones**: IANA Time Zone Database with Windows mappings
 - **Months/Days**: Standard calendar conventions
 - **Prefixes/Suffixes**: Common professional and social conventions
 
@@ -416,19 +564,20 @@ Parallel.For(0, 100, i =>
 
 ## Requirements
 
-- **.NET Standard 2.0** - Compatible with:
-  - .NET Framework 4.6.1+
-  - .NET Core 2.0+
-  - .NET 5, 6, 7, 8+
-  - Xamarin
-  - MAUI
+**.NET Standard 2.0** - Compatible with:
+
+- .NET Framework 4.6.1+
+- .NET Core 2.0+
+- .NET 5, 6, 7, 8+
+- Xamarin
+- MAUI
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 Areas for contribution:
-- Additional data sets (languages, currencies, time zones, etc.)
+- Additional data sets (languages, currencies, etc.)
 - Localization support
 - Additional builder methods
 - Bug fixes and improvements
@@ -437,37 +586,48 @@ Areas for contribution:
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
 
+## Changelog
+
+### v1.1.0
+- Added Canadian Provinces (10 provinces + 3 territories)
+- Added Mexican States (31 states + CDMX)
+- Added Time Zones (curated list with IANA/Windows IDs)
+- Added Years with rolling windows (Last, Next, Range)
+- Added Numbers utility for numeric ranges
+
+### v1.0.0
+- Initial release
+- US States, Countries, Months, Days
+- Prefix Titles, Suffixes, Genders, Marital Status, Yes/No
+
 ## Roadmap
 
 Future versions may include:
 
-- **Additional Data Sets**
-  - Languages (ISO 639)
-  - Currencies (ISO 4217)
-  - Time zones
-  - Canadian provinces
-  - Mexican states
-  - Industry classifications (NAICS)
-  - Education levels
-  - Phone/address types
-  - Employment statuses
-  - Company sizes
-  - Payment methods
+### Additional Data Sets
+- Languages (ISO 639)
+- Currencies (ISO 4217)
+- Industry classifications (NAICS)
+- Education levels
+- Phone/address types
+- Employment statuses
+- Company sizes
+- Payment methods
 
-- **Localization Support**
-  - Translated country/month names
-  - Culture-specific formats
+### Localization Support
+- Translated country/month names
+- Culture-specific formats
 
-- **Conversion Methods**
-  - Direct conversion to framework-specific types
-  - Custom mapping support
+### Conversion Methods
+- Direct conversion to framework-specific types
+- Custom mapping support
 
 ## Support
 
 If you encounter any issues or have questions:
 
-- 📝 [Open an issue](https://github.com/newob79/StandardDropDowns)
-- 💬 [Start a discussion](https://github.com/newob79/StandardDropDowns)
+- 📝 [Open an issue](https://github.com/yourusername/StandardDropdowns/issues)
+- 💬 [Start a discussion](https://github.com/yourusername/StandardDropdowns/discussions)
 
 ## Acknowledgments
 

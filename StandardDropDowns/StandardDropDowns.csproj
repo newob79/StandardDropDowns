@@ -6,7 +6,7 @@
 
     <!-- NuGet Package Metadata -->
     <PackageId>StandardDropdowns</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>newob79</Authors>
     <Company>newob79</Company>
     <Product>StandardDropdowns</Product>
@@ -23,7 +23,7 @@
     <!-- <PackageIcon>icon.png</PackageIcon> -->
 
     <!-- Generate package on build (optional - set to true if you want automatic generation) -->
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <!-- Include XML documentation in package -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -33,15 +33,12 @@
 
     <!-- Release notes for this version -->
     <PackageReleaseNotes>
-      v1.0.0 - Initial Release
-      - US States (50 states, DC, territories)
-      - Countries (ISO 3166-1)
-      - Months and Days of Week
-      - Prefix Titles and Suffixes
-      - Gender and Marital Status
-      - Yes/No options with presets
-      - Builder pattern for customization
-      - ISelectOption interface for easy UI integration
+      v1.1.0 - Initial Release
+      - Added Canadian Provinces (10 provinces + 3 territories)
+      - Added Mexican States (31 states + CDMX)
+      - Added Time Zones (curated list with IANA/Windows IDs)
+      - Added Years with rolling windows (Last, Next, Range)
+      - Added Numbers utility for numeric ranges
     </PackageReleaseNotes>
   </PropertyGroup>
 
